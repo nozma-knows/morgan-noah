@@ -12,7 +12,7 @@ export function H1({ children, className }: TypographyProps) {
   return (
     <h1
       className={cn(
-        'scroll-m-20 text-5xl font-light tracking-tight lg:text-6xl',
+        'scroll-m-20 text-5xl font-light tracking-tight lg:text-6xl font-heading',
         className,
       )}
     >
@@ -47,7 +47,7 @@ export const P = ({
   title,
   ...props
 }: TypographyProps) => (
-  <p title={title} className={cn('leading-7', className)} {...props}>
+  <p title={title} className={cn('leading-7 font-body', className)} {...props}>
     {children}
   </p>
 );
