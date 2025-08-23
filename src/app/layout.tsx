@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fleur_De_Leah, Red_Hat_Display } from 'next/font/google'
 import "./globals.css";
+import Header from "@/components/header";
 
 // Elegant cursive for headings
 const fleurDeLeah = Fleur_De_Leah({
@@ -31,8 +32,18 @@ export default function RootLayout({
       <body
         className={`${fleurDeLeah.variable} ${redHatDisplay.variable} antialiased`}
       >
-        <div className="h-screen w-screen flex justify-center p-12">
-          {children}
+        <div className="min-h-screen w-screen relative">
+          {/* Blurred background layer */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-xs"
+          />
+          {/* Content overlay */}
+          <div className="relative z-10">
+            <div className="w-full">
+              <Header />
+            </div>
+            {children}
+          </div>
         </div>
       </body>
     </html>
