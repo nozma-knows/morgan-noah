@@ -1,6 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { PopupButton } from "@typeform/embed-react";
 import { Button } from "./ui/button";
-import { H1, H2, Large, P, Title } from "./ui/typography";
 
 const tabs = [
   {
@@ -16,6 +18,11 @@ const tabs = [
 ]
 
 export default function Header() {
+
+  const typeformId = process.env.NEXT_PUBLIC_TYPEFORM_ID;
+
+  const showRSVP = !!typeformId
+
   return (
     <div className="flex gap-8 bg-background w-full p-5 justify-end items-center text-primary">
       <div className="flex gap-8">
@@ -23,7 +30,12 @@ export default function Header() {
           <Link href={tab.href} key={tab.label} className="font-medium text-lg hover:underline">{tab.label}</Link>
         ))}
       </div>
-      <Button variant="outline">RSVP</Button>
+      {showRSVP && <Button variant="outline">
+        <PopupButton id={typeformId} className="cursor-pointer">
+          RSVP
+        </PopupButton>
+      </Button>}
+      
     </div>
   );
 }
