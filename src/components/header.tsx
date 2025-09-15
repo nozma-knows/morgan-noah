@@ -19,7 +19,7 @@ const tabs = [
 
 export default function Header() {
 
-  const typeformId = process.env.NEXT_PUBLIC_TYPEFORM_ID;
+  const typeformId = process.env.NEXT_PUBLIC_RSVP_TYPEFORM_ID;
 
   const showRSVP = !!typeformId
 
